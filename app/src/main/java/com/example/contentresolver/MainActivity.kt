@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Retrieve student records
+        //
         // Retrieve student records
         val c = contentResolver.query(CONTENT_URI, null, null, null, "_value")
         Log.d("123123", "c: $c")
@@ -32,6 +32,14 @@ class MainActivity : AppCompatActivity() {
                 } while (c.moveToNext())
             }
         }
+
+
+        //
+        val ur = Uri.parse("content://com.example.myapp.provider/data")
+        val cursor = contentResolver.query(ur, null, null, null, null)
+        // Xử lý dữ liệu từ Cursor
+        Log.d("123123", "ur: $ur, cursor: $cursor")
+
 
     }
 }
